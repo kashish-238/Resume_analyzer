@@ -1,73 +1,78 @@
-# React + TypeScript + Vite
+# ResumeRaptor 🦖
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**A Resume analyzer powered by Groq.**  
+Upload a resume + paste a job description to get ATS scoring, evidence-backed feedback, actionable fixes, and a high-quality cover letter — fast, transparent, and private.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 What ResumeRaptor Does
 
-## React Compiler
+ResumeRaptor analyzes how well a resume matches a specific job description and returns:
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+- 📊 **ATS-style overall score (0–100)**
+- 🧾 **Evidence-based evaluation** (direct quotes from the resume)
+- 🧩 **Missing skills detection** (required vs preferred)
+- 🛠 **Concrete improvement suggestions**
+- ✍️ **Bullet rewrites** (safe, non-invented)
+- 💬 **Interview prep prompts**
+- 📨 **High-quality, role-specific cover letter** (generated in a second AI pass)
+- 📦 **Exportable JSON output**
 
-## Expanding the ESLint configuration
+Everything runs in **stateless mode** — no resumes or job descriptions are stored.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## ✨ Key Features
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- ⚡ **Ultra-fast inference** using Groq
+- 🧠 **Two-pass AI pipeline**
+  - Pass 1: Structured ATS evaluation (JSON-safe)
+  - Pass 2: Professional, human-sounding cover letter
+- 🔍 **Evidence-first scoring** (no vague feedback)
+- 🧪 **Demo mode** (instant showcase without uploads)
+- 🎛 **One-command development setup**
+- 🎨 **Cyber / mission-control UI**
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🧱 Tech Stack
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+**Frontend**
+- React + TypeScript
+- Tailwind CSS
+- Framer Motion
+- React Router
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+**Backend**
+- Node.js
+- Express
+- Groq API (LLaMA 3.1 models)
+
+**Other**
+- PDF & DOCX resume extraction
+- Zod schema validation
+- Secure API proxy (no client-side API keys)
+
+---
+
+## 🔒 Privacy & Security
+
+- ❌ No resumes stored
+- ❌ No job descriptions stored
+- ❌ No analytics tracking
+- ✅ All data processed in memory and discarded immediately
+- ✅ API keys never exposed to the client
+
+---
+
+## 🧪 Demo Mode
+
+Click **Demo Mode** in the analyzer to instantly populate a sample resume and job description.  
+Perfect for recruiters, reviewers, or quick demos.
+
+---
+
+### 1️⃣ Clone the repo
+```bash
+git clone https://github.com/your-username/resume-raptor.git
+cd resume-raptor
